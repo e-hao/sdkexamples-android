@@ -48,7 +48,6 @@ public class GroupsActivity extends BaseActivity {
 		instance = this;
 		inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 		grouplist =	EMGroupManager.getInstance().getAllGroups();
-		groupListView = (ListView)findViewById(R.id.fragment_container);
 		groupListView = (ListView)findViewById(R.id.list);
 		groupAdapter = new GroupAdapter(this, 1, grouplist);
 		groupListView.setAdapter(groupAdapter);
@@ -60,6 +59,7 @@ public class GroupsActivity extends BaseActivity {
 					//新建群聊
 					startActivityForResult(new Intent(GroupsActivity.this, NewGroupActivity.class), 0);
 				} else {
+					
 					//进入群聊
 					Intent intent = new Intent(GroupsActivity.this, ChatActivity.class);
 					// it is group chat
